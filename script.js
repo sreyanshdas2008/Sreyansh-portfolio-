@@ -1,118 +1,108 @@
-/* =========================================================
-   SREYANSH DAS — PORTFOLIO JAVASCRIPT
-   ========================================================= */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    /* ---------------------------------------------------------
-       CURRENT YEAR
-    --------------------------------------------------------- */
-    const year = document.getElementById("year");
-
-    if (year) {
-        year.textContent = new Date().getFullYear();
-    }
+// ================================
+// SREYANSH DAS — PORTFOLIO
+// ================================
 
 
-    /* ---------------------------------------------------------
-       MOBILE MENU
-    --------------------------------------------------------- */
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
+// Cursor glow
+const cursorGlow = document.querySelector(".cursor-glow");
 
-    if (menuToggle && navLinks) {
+if (cursorGlow) {
 
-        menuToggle.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-            menuToggle.classList.toggle("active");
-        });
+    document.addEventListener("mousemove", (event) => {
 
-        document.querySelectorAll(".nav-links a").forEach(link => {
-            link.addEventListener("click", () => {
-                navLinks.classList.remove("active");
-                menuToggle.classList.remove("active");
-            });
-        });
-    }
+        cursorGlow.style.left = `${event.clientX}px`;
+        cursorGlow.style.top = `${event.clientY}px`;
+
+    });
+
+}
 
 
-    /* ---------------------------------------------------------
-       SMOOTH SCROLL
-    --------------------------------------------------------- */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+// Mobile menu
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
 
-        anchor.addEventListener("click", function (e) {
+if (menuBtn && navLinks) {
 
-            const target = document.querySelector(this.getAttribute("href"));
+    menuBtn.addEventListener("click", () => {
 
-            if (target) {
-                e.preventDefault();
+        navLinks.classList.toggle("open");
 
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            }
-        });
+        menuBtn.textContent =
+            navLinks.classList.contains("open")
+                ? "✕"
+                : "☰";
 
     });
 
 
-    /* ---------------------------------------------------------
-       ACTIVE NAVIGATION
-    --------------------------------------------------------- */
-    const sections = document.querySelectorAll("section[id]");
-    const navigationLinks = document.querySelectorAll(".nav-links a");
+    document.querySelectorAll(".nav-links a").forEach(link => {
 
-    function updateActiveNav() {
+        link.addEventListener("click", () => {
 
-        let currentSection = "";
-
-        sections.forEach(section => {
-
-            const sectionTop = section.offsetTop - 180;
-            const sectionHeight = section.offsetHeight;
-
-            if (
-                window.scrollY >= sectionTop &&
-                window.scrollY < sectionTop + sectionHeight
-            ) {
-                currentSection = section.getAttribute("id");
-            }
+            navLinks.classList.remove("open");
+            menuBtn.textContent = "☰";
 
         });
 
-        navigationLinks.forEach(link => {
+    });
 
-            link.classList.remove("active");
+}
 
-            if (link.getAttribute("href") === `#${currentSection}`) {
-                link.classList.add("active");
-            }
 
-        });
+// Theme
+const themeBtn = document.querySelector(".theme-btn");
+
+if (themeBtn) {
+
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "light") {
+
+        document.body.classList.add("light");
+        themeBtn.textContent = "☀";
+
     }
 
-    window.addEventListener("scroll", updateActiveNav);
 
-    updateActiveNav();
+    themeBtn.addEventListener("click", () => {
+
+        document.body.classList.toggle("light");
+
+        const lightMode =
+            document.body.classList.contains("light");
+
+        themeBtn.textContent =
+            lightMode ? "☀" : "☾";
+
+        localStorage.setItem(
+            "theme",
+            lightMode ? "light" : "dark"
+        );
+
+    });
+
+}
 
 
-    /* ---------------------------------------------------------
-       SCROLL REVEAL ANIMATION
-    --------------------------------------------------------- */
-    const revealElements = document.querySelectorAll(".reveal");
+// Scroll reveal
+const revealElements =
+    document.querySelectorAll(".reveal");
 
-    const revealObserver = new IntersectionObserver(
+const revealObserver =
+    new IntersectionObserver(
         (entries) => {
 
             entries.forEach(entry => {
 
                 if (entry.isIntersecting) {
 
-                    entry.target.classList.add("visible");
+                    entry.target.classList.add("show");
 
-                    revealObserver.unobserve(entry.target);
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
                 }
 
             });
@@ -123,272 +113,243 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 
-    revealElements.forEach(element => {
-        revealObserver.observe(element);
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
+
+// Active navigation
+const sections =
+    document.querySelectorAll("section[id]");
+
+const navItems =
+    document.querySelectorAll(".nav-links a");
+
+
+function updateActiveNav() {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop =
+            section.offsetTop - 180;
+
+        if (window.scrollY >= sectionTop) {
+
+            current = section.id;
+
+        }
+
     });
 
 
-    /* ---------------------------------------------------------
-       TYPING EFFECT
-    --------------------------------------------------------- */
-    const typingElement = document.querySelector(".typing-text");
+    navItems.forEach(link => {
 
-    if (typingElement) {
+        link.classList.remove("active");
 
-        const words = [
-            "CSE AI/ML Student",
-            "Python Learner",
-            "C Programmer",
-            "Web Developer",
-            "Future Entrepreneur"
-        ];
+        if (
+            link.getAttribute("href") ===
+            `#${current}`
+        ) {
 
-        let wordIndex = 0;
-        let charIndex = 0;
-        let deleting = false;
+            link.classList.add("active");
 
-        function typeEffect() {
+        }
 
-            const currentWord = words[wordIndex];
+    });
 
-            if (!deleting) {
+}
 
-                typingElement.textContent =
-                    currentWord.substring(0, charIndex + 1);
 
-                charIndex++;
+window.addEventListener(
+    "scroll",
+    updateActiveNav
+);
 
-                if (charIndex === currentWord.length) {
+updateActiveNav();
 
-                    deleting = true;
 
-                    setTimeout(typeEffect, 1800);
-                    return;
-                }
+// Smooth scrolling
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach(link => {
 
-            } else {
+    link.addEventListener("click", event => {
 
-                typingElement.textContent =
-                    currentWord.substring(0, charIndex - 1);
+        const targetID =
+            link.getAttribute("href");
 
-                charIndex--;
+        const target =
+            document.querySelector(targetID);
 
-                if (charIndex === 0) {
+        if (target) {
 
-                    deleting = false;
+            event.preventDefault();
 
-                    wordIndex =
-                        (wordIndex + 1) % words.length;
-                }
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    });
+
+});
+
+
+// Typing effect
+const typing =
+    document.querySelector(".typing");
+
+if (typing) {
+
+    const words = [
+        "C programming",
+        "Python",
+        "AI / ML",
+        "Web development"
+    ];
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+
+    function type() {
+
+        const word = words[wordIndex];
+
+        if (!deleting) {
+
+            typing.textContent =
+                word.substring(0, charIndex + 1);
+
+            charIndex++;
+
+            if (charIndex === word.length) {
+
+                deleting = true;
+
+                setTimeout(type, 1400);
+
+                return;
+
             }
 
-            setTimeout(
-                typeEffect,
-                deleting ? 55 : 90
-            );
+        } else {
+
+            typing.textContent =
+                word.substring(0, charIndex - 1);
+
+            charIndex--;
+
+            if (charIndex === 0) {
+
+                deleting = false;
+
+                wordIndex =
+                    (wordIndex + 1) % words.length;
+
+            }
+
         }
 
-        typeEffect();
-    }
-
-
-    /* ---------------------------------------------------------
-       THEME TOGGLE
-    --------------------------------------------------------- */
-    const themeToggle = document.querySelector(".theme-toggle");
-
-    if (themeToggle) {
-
-        const savedTheme = localStorage.getItem("portfolio-theme");
-
-        if (savedTheme === "light") {
-            document.body.classList.add("light-theme");
-        }
-
-        themeToggle.addEventListener("click", () => {
-
-            document.body.classList.toggle("light-theme");
-
-            const theme =
-                document.body.classList.contains("light-theme")
-                    ? "light"
-                    : "dark";
-
-            localStorage.setItem("portfolio-theme", theme);
-        });
-    }
-
-
-    /* ---------------------------------------------------------
-       CURSOR GLOW
-    --------------------------------------------------------- */
-    const cursorGlow = document.querySelector(".cursor-glow");
-
-    if (cursorGlow && window.innerWidth > 768) {
-
-        document.addEventListener("mousemove", (e) => {
-
-            cursorGlow.style.left = `${e.clientX}px`;
-            cursorGlow.style.top = `${e.clientY}px`;
-
-        });
+        setTimeout(
+            type,
+            deleting ? 45 : 85
+        );
 
     }
 
 
-    /* ---------------------------------------------------------
-       BUTTON RIPPLE
-    --------------------------------------------------------- */
-    document.querySelectorAll(".btn").forEach(button => {
+    type();
 
-        button.addEventListener("click", function (e) {
-
-            const ripple = document.createElement("span");
-
-            ripple.classList.add("ripple");
-
-            const rect = this.getBoundingClientRect();
-
-            ripple.style.left =
-                `${e.clientX - rect.left}px`;
-
-            ripple.style.top =
-                `${e.clientY - rect.top}px`;
-
-            this.appendChild(ripple);
-
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-
-        });
-
-    });
+}
 
 
-    /* ---------------------------------------------------------
-       CONTACT FORM
-       GitHub Pages is static, so this opens the visitor's
-       email application using mailto.
-    --------------------------------------------------------- */
-    const contactForm = document.getElementById("contact-form");
+// Contact form
+const contactForm =
+    document.querySelector(".contact-form");
 
-    if (contactForm) {
+if (contactForm) {
 
-        contactForm.addEventListener("submit", (e) => {
+    contactForm.addEventListener(
+        "submit",
+        event => {
 
-            e.preventDefault();
+            event.preventDefault();
 
             const name =
-                document.getElementById("name")?.value.trim();
+                contactForm.querySelector(
+                    'input[type="text"]'
+                ).value.trim();
 
             const email =
-                document.getElementById("email")?.value.trim();
+                contactForm.querySelector(
+                    'input[type="email"]'
+                ).value.trim();
 
             const message =
-                document.getElementById("message")?.value.trim();
+                contactForm.querySelector(
+                    "textarea"
+                ).value.trim();
+
 
             if (!name || !email || !message) {
 
-                alert("Please fill in all the fields.");
+                alert(
+                    "Please fill in all the fields."
+                );
 
                 return;
+
             }
+
 
             const subject =
                 encodeURIComponent(
-                    `Portfolio Contact — ${name}`
+                    `Portfolio message from ${name}`
                 );
+
 
             const body =
                 encodeURIComponent(
-                    `Name: ${name}\n` +
-                    `Email: ${email}\n\n` +
-                    `Message:\n${message}`
+                    `Name: ${name}\nEmail: ${email}\n\n${message}`
                 );
 
+
+            // Replace with your real email
             window.location.href =
-                `mailto:Sreyanshdas2008@gmail.com?subject=${subject}&body=${body}`;
-
-        });
-    }
-
-
-    /* ---------------------------------------------------------
-       HEADER BACKGROUND ON SCROLL
-    --------------------------------------------------------- */
-    const navbar = document.querySelector(".navbar");
-
-    if (navbar) {
-
-        function navbarScroll() {
-
-            if (window.scrollY > 50) {
-                navbar.classList.add("scrolled");
-            } else {
-                navbar.classList.remove("scrolled");
-            }
+                `mailto:your-email@example.com?subject=${subject}&body=${body}`;
 
         }
+    );
 
-        window.addEventListener("scroll", navbarScroll);
-
-        navbarScroll();
-    }
+}
 
 
-    /* ---------------------------------------------------------
-       HERO PARALLAX — SUBTLE
-    --------------------------------------------------------- */
-    const heroVisual = document.querySelector(".hero-visual");
+// Current year
+const year =
+    document.querySelector("#year");
 
-    if (heroVisual && window.innerWidth > 900) {
+if (year) {
 
-        window.addEventListener("mousemove", (e) => {
+    year.textContent =
+        new Date().getFullYear();
 
-            const x =
-                (window.innerWidth / 2 - e.clientX) / 70;
+}
 
-            const y =
-                (window.innerHeight / 2 - e.clientY) / 70;
 
-            heroVisual.style.transform =
-                `translate(${x}px, ${y}px)`;
+// Page loaded
+window.addEventListener(
+    "load",
+    () => {
 
-        });
+        document.body.classList.add("loaded");
 
     }
-
-
-    /* ---------------------------------------------------------
-       FAQ
-    --------------------------------------------------------- */
-    const faqItems = document.querySelectorAll(".faq-item");
-
-    faqItems.forEach(item => {
-
-        item.addEventListener("toggle", () => {
-
-            if (item.open) {
-
-                faqItems.forEach(otherItem => {
-
-                    if (otherItem !== item) {
-                        otherItem.removeAttribute("open");
-                    }
-
-                });
-
-            }
-
-        });
-
-    });
-
-
-    /* ---------------------------------------------------------
-       PAGE LOADED
-    --------------------------------------------------------- */
-    document.body.classList.add("page-loaded");
-
-});
+);
