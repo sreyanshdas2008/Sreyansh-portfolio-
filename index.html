@@ -2,20 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="Sreyansh Das — CSE AI/ML Student at SRM KTR.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Sreyansh Das | CSE AI/ML Student</title>
 
-    <!-- Google Fonts -->
+    <meta name="description"
+          content="Sreyansh Das — CSE AI/ML student at SRM Institute of Science and Technology.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
           rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
@@ -26,38 +23,37 @@
 <!-- Cursor glow -->
 <div class="cursor-glow"></div>
 
-
-<!-- ================= NAVBAR ================= -->
-
+<!-- NAVBAR -->
 <header class="navbar">
 
-    <a href="#home" class="logo">
-        SD<span>.</span>
-    </a>
+    <div class="nav-container">
 
-    <nav class="nav-links">
+        <a href="#home" class="logo">
+            SD<span>.</span>
+        </a>
 
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#work">Work</a>
-        <a href="#github">GitHub</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#journey">Journey</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
-    </nav>
+        <div class="nav-right">
 
-    <div class="nav-actions">
+            <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
+                ☾
+            </button>
 
-        <button id="themeToggle"
-                class="icon-btn"
-                aria-label="Toggle theme">
-            ☼
-        </button>
+            <a href="#contact" class="nav-contact">
+                Let's Talk
+            </a>
 
-        <button id="menuToggle"
-                class="icon-btn menu-btn"
-                aria-label="Open menu">
+        </div>
+
+        <button class="menu-btn" id="menuBtn">
             ☰
         </button>
 
@@ -66,69 +62,83 @@
 </header>
 
 
+<!-- HERO -->
 <main>
-
-
-<!-- ================= HERO ================= -->
 
 <section id="home" class="hero">
 
-    <div class="hero-content">
+    <div class="hero-background"></div>
 
-        <div class="live-status">
-            <span></span>
-            AVAILABLE FOR LEARNING & BUILDING
+    <div class="hero-container">
+
+        <!-- LEFT -->
+        <div class="hero-content reveal">
+
+            <div class="live-badge">
+                <span></span>
+                OPEN TO LEARNING & BUILDING
+            </div>
+
+            <p class="eyebrow">
+                CSE AI/ML STUDENT · SRM KTR
+            </p>
+
+            <h1>
+                Learning today.
+                <br>
+                <span>Building tomorrow.</span>
+            </h1>
+
+            <p class="hero-description">
+                Hi, I'm <strong>Sreyansh Das</strong>.
+                I'm a Computer Science & Engineering student
+                specializing in Artificial Intelligence and Machine Learning
+                at SRM Institute of Science and Technology.
+            </p>
+
+            <div class="typing-wrapper">
+                <span class="terminal-symbol">></span>
+                <span id="typingText"></span>
+                <span class="typing-cursor">_</span>
+            </div>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn primary-btn">
+                    View My Work
+                    <span>↗</span>
+                </a>
+
+                <a href="#contact" class="btn secondary-btn">
+                    Contact Me
+                </a>
+
+            </div>
+
+            <div class="hero-meta">
+
+                <div>
+                    <strong>2026</strong>
+                    <span>Current Year</span>
+                </div>
+
+                <div>
+                    <strong>2030</strong>
+                    <span>Expected Graduation</span>
+                </div>
+
+                <div>
+                    <strong>India</strong>
+                    <span>Based In</span>
+                </div>
+
+            </div>
+
         </div>
 
-        <p class="eyebrow">
-            CSE AI/ML STUDENT · SRM KTR
-        </p>
 
-        <h1>
-            Learning today.
-            <span>Building tomorrow.</span>
-        </h1>
-
-        <p class="hero-description">
-            I'm Sreyansh Das, a Computer Science and Engineering
-            student specializing in Artificial Intelligence and
-            Machine Learning at SRM Institute of Science and
-            Technology.
-        </p>
-
-        <div class="typing-wrapper">
-            Currently exploring:
-            <strong id="typingText">Python</strong>
-        </div>
-
-        <div class="hero-buttons">
-
-            <a href="#work" class="btn primary">
-                Explore my work →
-            </a>
-
-            <a href="#contact" class="btn secondary">
-                Contact me
-            </a>
-
-        </div>
-
-        <div class="hero-meta">
-
-            <span>📍 Agartala, Tripura</span>
-            <span>🎓 SRM KTR</span>
-            <span>🎯 Graduation 2030</span>
-
-        </div>
-
-    </div>
-
-
-    <!-- SYSTEM CARD -->
-
-    <div class="hero-terminal">
-
-        <div class="terminal-window">
+        <!-- PROFILE -->
+        <div class="profile-terminal reveal">
 
             <div class="terminal-header">
 
@@ -138,16 +148,17 @@
                     <span></span>
                 </div>
 
-                <span>profile.sh --live</span>
+                <div class="terminal-title">
+                    profile.sh --live
+                </div>
 
-                <div class="terminal-live">
-                    ● LIVE
+                <div class="terminal-status">
+                    LIVE
                 </div>
 
             </div>
 
-
-            <div class="terminal-body">
+            <div class="profile-screen">
 
                 <div class="portrait-area">
 
@@ -155,81 +166,77 @@
                         VISUAL.MAP
                     </div>
 
-                    <div class="portrait-placeholder">
+                    <div class="portrait-frame">
+
+                        <img
+                            src="profile.jpg"
+                            alt="Sreyansh Das"
+                        >
 
                         <div class="scan-line"></div>
 
-                        <span>SD</span>
-
                     </div>
-
-                    <p>
-                        profile.render()
-                    </p>
 
                 </div>
 
 
                 <div class="system-info">
 
-                    <div class="system-title">
+                    <div class="info-title">
                         SYSTEM.INFO
                     </div>
 
                     <div class="info-row">
-                        <span>SUBJECT</span>
-                        <b>SREYANSH DAS</b>
+                        <span>Subject</span>
+                        <i></i>
+                        <strong>Sreyansh Das</strong>
                     </div>
 
                     <div class="info-row">
-                        <span>ROLE</span>
-                        <b>CSE AI/ML STUDENT</b>
+                        <span>Role</span>
+                        <i></i>
+                        <strong>CSE AI/ML Student</strong>
                     </div>
 
                     <div class="info-row">
-                        <span>ORIGIN</span>
-                        <b>AGARTALA, TRIPURA</b>
+                        <span>Origin</span>
+                        <i></i>
+                        <strong>Agartala, Tripura</strong>
                     </div>
 
                     <div class="info-row">
-                        <span>EDUCATION</span>
-                        <b>SRM KTR</b>
+                        <span>Education</span>
+                        <i></i>
+                        <strong>SRM KTR</strong>
                     </div>
 
                     <div class="info-row">
-                        <span>STATUS</span>
-                        <b>LEARNING</b>
+                        <span>Status</span>
+                        <i></i>
+                        <strong class="green-text">
+                            Learning + Building
+                        </strong>
                     </div>
 
                     <div class="info-row">
-                        <span>TOOLCHAIN</span>
-                        <b>PYTHON · C · GIT</b>
+                        <span>Focus</span>
+                        <i></i>
+                        <strong>AI / ML</strong>
                     </div>
 
                     <div class="info-row">
-                        <span>AI / ML</span>
-                        <b>EXPLORING</b>
+                        <span>Languages</span>
+                        <i></i>
+                        <strong>Python · C</strong>
                     </div>
 
                     <div class="info-row">
-                        <span>GITHUB</span>
-                        <b>@sreyanshdas2008</b>
+                        <span>Goal</span>
+                        <i></i>
+                        <strong>Build Something Real</strong>
                     </div>
 
                 </div>
-
-            </div>
-
-
-            <div class="terminal-footer">
-
-                <span>
-                    $ ./learning --continue
-                </span>
-
-                <span class="terminal-cursor">
-                    _
-                </span>
 
             </div>
 
@@ -240,53 +247,70 @@
 </section>
 
 
-
-<!-- ================= ABOUT ================= -->
-
+<!-- ABOUT -->
 <section id="about" class="section">
 
-    <div class="section-label">
-        <span>01</span>
-        ABOUT
-    </div>
+    <div class="container">
 
-    <div class="about-grid">
+        <div class="section-heading reveal">
 
-        <div class="section-title">
+            <span>01 / ABOUT</span>
 
             <h2>
-                Not just learning code.
-                <span>Learning how to build.</span>
+                A student building
+                <span>one project at a time.</span>
             </h2>
 
         </div>
 
 
-        <div class="about-text">
+        <div class="about-grid">
 
-            <p>
-                I'm currently pursuing B.Tech in Computer Science
-                and Engineering with a specialization in Artificial
-                Intelligence and Machine Learning at SRM KTR.
-            </p>
+            <div class="glass-card about-card reveal">
 
-            <p>
-                Right now, I'm focused on strengthening my
-                programming fundamentals, especially with Python
-                and C, while exploring web development and AI/ML.
-            </p>
+                <p class="large-text">
+                    I'm currently pursuing B.Tech in
+                    <strong>Computer Science & Engineering
+                    with Artificial Intelligence and Machine Learning</strong>
+                    at SRM Institute of Science and Technology.
+                </p>
 
-            <p>
-                My approach is simple: learn something, practice it,
-                build something with it, and then improve.
-            </p>
+                <p>
+                    I'm still early in my journey, so I'm focused on
+                    understanding the fundamentals properly rather than
+                    trying to know everything at once.
+                </p>
 
-            <div class="about-tags">
+                <p>
+                    I enjoy programming, experimenting with projects and
+                    learning how technology can be turned into something
+                    useful.
+                </p>
 
-                <span>Student</span>
-                <span>Builder</span>
-                <span>Learner</span>
-                <span>AI/ML Explorer</span>
+            </div>
+
+
+            <div class="mission-card reveal">
+
+                <div class="mission-icon">
+                    ✦
+                </div>
+
+                <p class="small-label">
+                    CURRENT MISSION
+                </p>
+
+                <h3>
+                    Learn.
+                    Practice.
+                    Build.
+                </h3>
+
+                <p>
+                    Strengthen my programming fundamentals,
+                    explore AI/ML and gradually build projects
+                    that reflect what I actually know.
+                </p>
 
             </div>
 
@@ -297,455 +321,319 @@
 </section>
 
 
+<!-- SKILLS -->
+<section id="skills" class="section section-dark">
 
-<!-- ================= SKILLS ================= -->
+    <div class="container">
 
-<section id="skills" class="section">
+        <div class="section-heading reveal">
 
-    <div class="section-label">
-        <span>02</span>
-        WHAT I WORK WITH
-    </div>
+            <span>02 / TOOLBOX</span>
 
-    <div class="section-heading">
+            <h2>
+                Things I'm
+                <span>working with.</span>
+            </h2>
 
-        <h2>
-            Tools I'm
-            <span>learning and using.</span>
-        </h2>
-
-        <p>
-            A growing toolkit. I'm still learning, so I prefer
-            showing what I'm actually working with rather than
-            claiming expertise.
-        </p>
-
-    </div>
+        </div>
 
 
-    <div class="feature-grid">
+        <div class="skills-grid">
+
+            <article class="glass-card skill-card reveal">
+
+                <div class="skill-icon">C</div>
+
+                <h3>C Programming</h3>
+
+                <p>
+                    Fundamentals, functions, arrays,
+                    pointers and problem solving.
+                </p>
+
+                <div class="skill-tag">LEARNING</div>
+
+            </article>
 
 
-        <article class="glass-card">
+            <article class="glass-card skill-card reveal">
 
-            <div class="card-icon">
-                C
-            </div>
+                <div class="skill-icon">Py</div>
 
-            <h3>C Programming</h3>
+                <h3>Python</h3>
 
-            <p>
-                Building strong programming fundamentals through
-                conditions, loops, functions, arrays and pointers.
-            </p>
+                <p>
+                    Programming fundamentals and
+                    exploring Python for AI/ML.
+                </p>
 
-            <span class="card-status">
-                PRACTICING
-            </span>
+                <div class="skill-tag">LEARNING</div>
 
-        </article>
+            </article>
 
 
-        <article class="glass-card">
+            <article class="glass-card skill-card reveal">
 
-            <div class="card-icon">
-                Py
-            </div>
+                <div class="skill-icon">AI</div>
 
-            <h3>Python</h3>
+                <h3>AI / Machine Learning</h3>
 
-            <p>
-                Learning Python fundamentals and gradually moving
-                toward applications in AI and machine learning.
-            </p>
+                <p>
+                    Exploring the fundamentals of
+                    artificial intelligence and ML.
+                </p>
 
-            <span class="card-status">
-                LEARNING
-            </span>
+                <div class="skill-tag">EXPLORING</div>
 
-        </article>
+            </article>
 
 
-        <article class="glass-card">
+            <article class="glass-card skill-card reveal">
 
-            <div class="card-icon">
-                AI
-            </div>
+                <div class="skill-icon">WEB</div>
 
-            <h3>Artificial Intelligence</h3>
+                <h3>Web Development</h3>
 
-            <p>
-                Exploring the concepts behind intelligent systems
-                and machine learning.
-            </p>
+                <p>
+                    HTML, CSS and JavaScript for
+                    building responsive websites.
+                </p>
 
-            <span class="card-status">
-                EXPLORING
-            </span>
+                <div class="skill-tag">BUILDING</div>
 
-        </article>
+            </article>
 
 
-        <article class="glass-card">
+            <article class="glass-card skill-card reveal">
 
-            <div class="card-icon">
-                &lt;/&gt;
-            </div>
+                <div class="skill-icon">GH</div>
 
-            <h3>Web Development</h3>
+                <h3>Git & GitHub</h3>
 
-            <p>
-                Building responsive websites with HTML, CSS and
-                JavaScript.
-            </p>
+                <p>
+                    Version control and publishing
+                    projects using GitHub.
+                </p>
 
-            <span class="card-status">
-                BUILDING
-            </span>
+                <div class="skill-tag">USING</div>
 
-        </article>
+            </article>
 
 
-        <article class="glass-card">
+            <article class="glass-card skill-card reveal">
 
-            <div class="card-icon">
-                Git
-            </div>
+                <div class="skill-icon">∞</div>
 
-            <h3>Git & GitHub</h3>
+                <h3>Always Learning</h3>
 
-            <p>
-                Learning version control and using GitHub to
-                manage and publish projects.
-            </p>
+                <p>
+                    Trying new technologies and
+                    improving through practice.
+                </p>
 
-            <span class="card-status">
-                USING
-            </span>
+                <div class="skill-tag">ONGOING</div>
 
-        </article>
+            </article>
 
-
-        <article class="glass-card">
-
-            <div class="card-icon">
-                ∞
-            </div>
-
-            <h3>Always Learning</h3>
-
-            <p>
-                My toolkit is still growing. New technologies,
-                projects and experiments will be added over time.
-            </p>
-
-            <span class="card-status">
-                CONTINUOUS
-            </span>
-
-        </article>
+        </div>
 
     </div>
 
 </section>
 
 
+<!-- HOW I WORK -->
+<section id="how" class="section">
 
-<!-- ================= HOW I WORK ================= -->
+    <div class="container">
 
-<section id="work" class="section">
+        <div class="section-heading reveal">
 
-    <div class="section-label">
-        <span>03</span>
-        HOW I WORK
-    </div>
+            <span>03 / PROCESS</span>
 
-    <div class="section-heading">
+            <h2>
+                How I
+                <span>work.</span>
+            </h2>
 
-        <h2>
-            Learn.
-            <span>Practice. Build.</span>
-        </h2>
-
-        <p>
-            My current approach to improving as a developer.
-        </p>
-
-    </div>
+        </div>
 
 
-    <div class="process-grid">
+        <div class="process-grid">
 
-        <article class="process-card">
+            <div class="process-step reveal">
 
-            <span class="process-number">
-                01
-            </span>
+                <div class="process-number">
+                    01
+                </div>
 
-            <h3>Learn</h3>
+                <h3>Learn</h3>
 
-            <p>
-                Understand the concept before trying to use it.
-                I focus on building a strong foundation.
-            </p>
+                <p>
+                    Understand the concept and
+                    learn the fundamentals first.
+                </p>
 
-        </article>
-
-
-        <div class="process-arrow">→</div>
+            </div>
 
 
-        <article class="process-card">
-
-            <span class="process-number">
-                02
-            </span>
-
-            <h3>Practice</h3>
-
-            <p>
-                Write code, solve problems and experiment with
-                what I've learned.
-            </p>
-
-        </article>
+            <div class="process-line"></div>
 
 
-        <div class="process-arrow">→</div>
+            <div class="process-step reveal">
+
+                <div class="process-number">
+                    02
+                </div>
+
+                <h3>Practice</h3>
+
+                <p>
+                    Write code, solve problems and
+                    learn from mistakes.
+                </p>
+
+            </div>
 
 
-        <article class="process-card">
+            <div class="process-line"></div>
 
-            <span class="process-number">
-                03
-            </span>
 
-            <h3>Build</h3>
+            <div class="process-step reveal">
 
-            <p>
-                Turn knowledge into actual projects and learn
-                from the problems that come with building them.
-            </p>
+                <div class="process-number">
+                    03
+                </div>
 
-        </article>
+                <h3>Build</h3>
+
+                <p>
+                    Turn what I learn into small,
+                    practical projects.
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
 
 </section>
 
 
+<!-- PROJECTS -->
+<section id="projects" class="section section-dark">
 
-<!-- ================= PROJECTS ================= -->
+    <div class="container">
 
-<section class="section">
+        <div class="section-heading reveal">
 
-    <div class="section-label">
-        <span>04</span>
-        PROJECTS
-    </div>
+            <span>04 / PROJECTS</span>
 
-    <div class="section-heading">
+            <h2>
+                Things I've
+                <span>been building.</span>
+            </h2>
 
-        <h2>
-            Things I'm
-            <span>building.</span>
-        </h2>
-
-        <p>
-            A collection of projects that reflect what I'm
-            currently learning.
-        </p>
-
-    </div>
+        </div>
 
 
-    <div class="projects-grid">
+        <div class="projects-grid">
+
+            <article class="project-card reveal">
+
+                <div class="project-top">
+                    <span class="project-number">01</span>
+                    <span class="project-status">LIVE</span>
+                </div>
+
+                <h3>Personal Portfolio</h3>
+
+                <p>
+                    My personal portfolio website built with
+                    HTML, CSS and JavaScript and hosted using
+                    GitHub Pages.
+                </p>
+
+                <div class="project-tech">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+
+                <a
+                    href="https://sreyanshdas2008.github.io/Sreyansh-portfolio-/"
+                    target="_blank"
+                    class="project-link"
+                >
+                    Visit Project ↗
+                </a>
+
+            </article>
 
 
-        <article class="project-card">
+            <article class="project-card reveal">
 
-            <div class="project-top">
-                <span>01</span>
-                <span>LIVE</span>
-            </div>
+                <div class="project-top">
+                    <span class="project-number">02</span>
+                    <span class="project-status">BUILDING</span>
+                </div>
 
-            <h3>Personal Portfolio</h3>
+                <h3>C Programming Practice</h3>
 
-            <p>
-                My personal portfolio website designed to document
-                my journey, skills, projects and progress as a
-                CSE AI/ML student.
-            </p>
+                <p>
+                    A collection of programs covering
+                    C fundamentals, functions, pointers,
+                    arrays and problem solving.
+                </p>
 
-            <div class="project-tech">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-            </div>
-
-            <a
-                href="https://sreyanshdas2008.github.io/Sreyansh-portfolio-/"
-                target="_blank"
-                class="project-link">
-                Visit project →
-            </a>
-
-        </article>
-
-
-        <article class="project-card">
-
-            <div class="project-top">
-                <span>02</span>
-                <span>BUILDING</span>
-            </div>
-
-            <h3>C Programming Practice</h3>
-
-            <p>
-                Programming exercises focused on developing a
-                stronger understanding of C fundamentals and
-                problem solving.
-            </p>
-
-            <div class="project-tech">
-                <span>C</span>
-                <span>Logic</span>
-                <span>Problem Solving</span>
-            </div>
-
-            <span class="project-link muted-link">
-                More coming →
-            </span>
-
-        </article>
-
-
-        <article class="project-card">
-
-            <div class="project-top">
-                <span>03</span>
-                <span>LEARNING</span>
-            </div>
-
-            <h3>Python Practice</h3>
-
-            <p>
-                A growing collection of Python experiments and
-                exercises as I prepare to work more deeply with
-                AI and machine learning.
-            </p>
-
-            <div class="project-tech">
-                <span>Python</span>
-                <span>AI/ML</span>
-            </div>
-
-            <span class="project-link muted-link">
-                More coming →
-            </span>
-
-        </article>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= GITHUB ================= -->
-
-<section id="github" class="section github-section">
-
-    <div class="section-label">
-        <span>05</span>
-        GITHUB
-    </div>
-
-    <div class="section-heading">
-
-        <h2>
-            My code,
-            <span>in progress.</span>
-        </h2>
-
-        <p>
-            My GitHub is where I keep the things I'm learning,
-            experimenting with and building.
-        </p>
-
-    </div>
-
-
-    <div class="github-grid">
-
-
-        <div class="github-main-card">
-
-            <div class="github-card-header">
-
-                <div>
-                    <span class="github-label">
-                        GITHUB PROFILE
-                    </span>
-
-                    <h3>
-                        @sreyanshdas2008
-                    </h3>
+                <div class="project-tech">
+                    <span>C</span>
+                    <span>Logic</span>
+                    <span>Practice</span>
                 </div>
 
                 <a
                     href="https://github.com/sreyanshdas2008"
                     target="_blank"
-                    class="github-button">
-                    View GitHub →
+                    class="project-link"
+                >
+                    GitHub ↗
                 </a>
 
-            </div>
+            </article>
 
 
-            <div class="github-stats">
+            <article class="project-card reveal">
 
-                <div>
-                    <strong id="repoCount">--</strong>
-                    <span>Public repos</span>
+                <div class="project-top">
+                    <span class="project-number">03</span>
+                    <span class="project-status">LEARNING</span>
                 </div>
 
-                <div>
-                    <strong id="followerCount">--</strong>
-                    <span>Followers</span>
+                <h3>Python & AI/ML</h3>
+
+                <p>
+                    Exploring Python and gradually moving
+                    toward machine-learning projects,
+                    datasets and practical experiments.
+                </p>
+
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>AI</span>
+                    <span>ML</span>
                 </div>
 
-                <div>
-                    <strong>2030</strong>
-                    <span>Graduation</span>
-                </div>
+                <a
+                    href="https://github.com/sreyanshdas2008"
+                    target="_blank"
+                    class="project-link"
+                >
+                    GitHub ↗
+                </a>
 
-            </div>
-
-        </div>
-
-
-        <div class="github-side-card">
-
-            <div class="github-mini-title">
-                CONTRIBUTION ACTIVITY
-            </div>
-
-            <div class="contribution-grid">
-
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span>
-
-            </div>
-
-            <p>
-                Learning, committing and improving one step at a time.
-            </p>
+            </article>
 
         </div>
 
@@ -754,23 +642,18 @@
 </section>
 
 
+<!-- JOURNEY -->
+<section id="journey" class="section">
 
-<!-- ================= JOURNEY ================= -->
+    <div class="container">
 
-<section class="section">
+        <div class="section-heading reveal">
 
-    <div class="section-label">
-        <span>06</span>
-        JOURNEY
-    </div>
-
-    <div class="journey-grid">
-
-        <div class="section-title">
+            <span>05 / JOURNEY</span>
 
             <h2>
                 Still early.
-                <span>Still building.</span>
+                <span>That's the point.</span>
             </h2>
 
         </div>
@@ -778,60 +661,79 @@
 
         <div class="timeline">
 
-
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
 
                 <div class="timeline-dot"></div>
 
-                <div>
-                    <span>2026</span>
+                <div class="timeline-date">
+                    2026
+                </div>
 
-                    <h3>Started at SRM KTR</h3>
+                <div class="timeline-content">
+
+                    <h3>
+                        Started at SRM KTR
+                    </h3>
 
                     <p>
-                        Beginning my B.Tech journey in Computer
-                        Science and Engineering with AI/ML.
+                        Began my B.Tech journey in
+                        Computer Science & Engineering
+                        with AI/ML.
                     </p>
+
                 </div>
 
             </div>
 
 
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
 
                 <div class="timeline-dot"></div>
 
-                <div>
-                    <span>NOW</span>
+                <div class="timeline-date">
+                    2026
+                </div>
 
-                    <h3>Strengthening Fundamentals</h3>
+                <div class="timeline-content">
+
+                    <h3>
+                        Started Programming
+                    </h3>
 
                     <p>
-                        Working with C and Python while learning
-                        web development and Git/GitHub.
+                        Building stronger foundations
+                        in C and Python through regular
+                        practice.
                     </p>
+
                 </div>
 
             </div>
 
 
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
 
                 <div class="timeline-dot"></div>
 
-                <div>
-                    <span>NEXT</span>
+                <div class="timeline-date">
+                    2026 → 2030
+                </div>
 
-                    <h3>Build More Real Projects</h3>
+                <div class="timeline-content">
+
+                    <h3>
+                        Learning & Building
+                    </h3>
 
                     <p>
-                        Applying what I learn to increasingly
-                        meaningful projects in AI/ML and software.
+                        Exploring AI/ML, web development
+                        and building projects throughout
+                        my college journey.
                     </p>
+
                 </div>
 
             </div>
-
 
         </div>
 
@@ -840,196 +742,242 @@
 </section>
 
 
+<!-- GITHUB -->
+<section class="github-section">
 
-<!-- ================= FAQ ================= -->
+    <div class="container">
 
+        <div class="github-card reveal">
+
+            <div>
+
+                <span class="small-label">
+                    GITHUB
+                </span>
+
+                <h2>
+                    Follow the journey.
+                </h2>
+
+                <p>
+                    Code, experiments and future projects
+                    will live here.
+                </p>
+
+            </div>
+
+            <a
+                href="https://github.com/sreyanshdas2008"
+                target="_blank"
+                class="btn primary-btn"
+            >
+                Visit GitHub ↗
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FAQ -->
 <section id="faq" class="section">
 
-    <div class="section-label">
-        <span>07</span>
-        FAQ
-    </div>
+    <div class="container">
 
-    <div class="section-heading">
+        <div class="section-heading reveal">
 
-        <h2>
-            A few things
-            <span>about me.</span>
-        </h2>
+            <span>06 / FAQ</span>
 
-    </div>
+            <h2>
+                Frequently asked
+                <span>questions.</span>
+            </h2>
 
-
-    <div class="faq-container">
+        </div>
 
 
-        <details class="faq-item">
+        <div class="faq">
 
-            <summary>
-                What are you studying?
-                <span>+</span>
-            </summary>
+            <details class="faq-item reveal">
 
-            <p>
-                I'm pursuing B.Tech in Computer Science and
-                Engineering with Artificial Intelligence and
-                Machine Learning at SRM KTR.
-            </p>
+                <summary>
+                    What are you studying?
+                    <span>+</span>
+                </summary>
 
-        </details>
+                <p>
+                    I'm pursuing B.Tech in Computer Science
+                    & Engineering with Artificial Intelligence
+                    and Machine Learning at SRM Institute of
+                    Science and Technology.
+                </p>
 
-
-        <details class="faq-item">
-
-            <summary>
-                What languages do you know?
-                <span>+</span>
-            </summary>
-
-            <p>
-                I'm currently working with C and Python and
-                learning HTML, CSS and JavaScript for web
-                development.
-            </p>
-
-        </details>
+            </details>
 
 
-        <details class="faq-item">
+            <details class="faq-item reveal">
 
-            <summary>
-                Are you an experienced AI/ML developer?
-                <span>+</span>
-            </summary>
+                <summary>
+                    What technologies are you learning?
+                    <span>+</span>
+                </summary>
 
-            <p>
-                I'm currently learning AI and machine learning.
-                I'm building my fundamentals rather than claiming
-                professional-level expertise.
-            </p>
+                <p>
+                    Currently I'm working with C, Python,
+                    HTML, CSS, JavaScript, Git/GitHub and
+                    exploring AI/ML.
+                </p>
 
-        </details>
+            </details>
 
 
-        <details class="faq-item">
+            <details class="faq-item reveal">
 
-            <summary>
-                What are you working toward?
-                <span>+</span>
-            </summary>
+                <summary>
+                    Are you looking for opportunities?
+                    <span>+</span>
+                </summary>
 
-            <p>
-                My goal right now is to develop strong technical
-                fundamentals and build real projects as I progress
-                through college.
-            </p>
+                <p>
+                    I'm mainly focused on learning and
+                    building right now, but I'm open to
+                    meaningful opportunities that help me
+                    grow.
+                </p>
 
-        </details>
+            </details>
+
+
+            <details class="faq-item reveal">
+
+                <summary>
+                    Where can I see your work?
+                    <span>+</span>
+                </summary>
+
+                <p>
+                    You can find my projects and programming
+                    work on my GitHub profile.
+                </p>
+
+            </details>
+
+        </div>
 
     </div>
 
 </section>
 
 
-
-<!-- ================= CONTACT ================= -->
-
+<!-- CONTACT -->
 <section id="contact" class="section contact-section">
 
-    <div class="contact-grid">
+    <div class="container">
+
+        <div class="contact-grid">
+
+            <div class="contact-content reveal">
+
+                <span class="small-label">
+                    07 / CONTACT
+                </span>
+
+                <h2>
+                    Let's build
+                    <span>something.</span>
+                </h2>
+
+                <p>
+                    Have a question, project idea or simply
+                    want to connect? Send me a message.
+                </p>
 
 
-        <div class="contact-copy">
+                <div class="contact-links">
 
-            <div class="section-label">
-                <span>08</span>
-                CONTACT
+                    <a href="mailto:Sreyanshdas2008@gmail.com">
+                        <span>EMAIL</span>
+                        Sreyanshdas2008@gmail.com
+                    </a>
+
+                    <a
+                        href="https://github.com/sreyanshdas2008"
+                        target="_blank"
+                    >
+                        <span>GITHUB</span>
+                        github.com/sreyanshdas2008
+                    </a>
+
+                    <a
+                        href="https://www.linkedin.com/"
+                        target="_blank"
+                    >
+                        <span>LINKEDIN</span>
+                        Connect with me
+                    </a>
+
+                </div>
+
             </div>
 
-            <h2>
-                Have something
-                <span>to say?</span>
-            </h2>
 
-            <p>
-                Whether it's about a project, collaboration,
-                learning or simply connecting, feel free to
-                reach out.
-            </p>
+            <form
+                class="contact-form glass-card reveal"
+                id="contactForm"
+            >
 
-
-            <div class="contact-links">
-
-                <a href="mailto:Sreyanshdas2008@gmail.com">
-                    ✉ Sreyanshdas2008@gmail.com
-                </a>
-
-                <a
-                    href="https://github.com/sreyanshdas2008"
-                    target="_blank">
-                    ◇ github.com/sreyanshdas2008
-                </a>
-
-                <a
-                    href="https://sreyanshdas2008.github.io/Sreyansh-portfolio-/"
-                    target="_blank">
-                    ↗ Portfolio
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <form id="contactForm"
-              class="contact-form">
-
-            <label>
-                Your name
+                <label for="name">
+                    Name
+                </label>
 
                 <input
                     type="text"
                     id="name"
                     name="name"
                     placeholder="Your name"
-                    required>
-            </label>
+                    required
+                >
 
 
-            <label>
-                Your email
+                <label for="email">
+                    Email
+                </label>
 
                 <input
                     type="email"
                     id="email"
                     name="email"
-                    placeholder="you@example.com"
-                    required>
-            </label>
+                    placeholder="your@email.com"
+                    required
+                >
 
 
-            <label>
-                Message
+                <label for="message">
+                    Message
+                </label>
 
                 <textarea
                     id="message"
                     name="message"
+                    rows="6"
                     placeholder="Write your message..."
-                    required></textarea>
-            </label>
+                    required
+                ></textarea>
 
 
-            <button
-                type="submit"
-                class="btn primary">
-                Send message →
-            </button>
+                <button
+                    type="submit"
+                    class="btn primary-btn submit-btn"
+                >
+                    Send Message
+                    <span>↗</span>
+                </button>
 
-            <p id="formMessage"
-               class="form-message">
-            </p>
+            </form>
 
-        </form>
+        </div>
 
     </div>
 
@@ -1038,27 +986,43 @@
 </main>
 
 
-
-<!-- ================= FOOTER ================= -->
-
+<!-- FOOTER -->
 <footer>
 
-    <div>
-        <strong>SD<span>.</span></strong>
+    <div class="container footer-inner">
+
+        <div class="footer-brand">
+
+            <strong>
+                Sreyansh Das<span>.</span>
+            </strong>
+
+            <p>
+                CSE AI/ML Student · SRM KTR
+            </p>
+
+        </div>
+
+
+        <div class="footer-nav">
+
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © <span id="year"></span> Sreyansh Das.
+            Built with HTML, CSS & JavaScript.
+
+        </div>
+
     </div>
-
-    <nav>
-
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-
-    </nav>
-
-    <p>
-        © <span id="year"></span> Sreyansh Das
-    </p>
 
 </footer>
 
