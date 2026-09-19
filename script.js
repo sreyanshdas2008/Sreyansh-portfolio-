@@ -1,385 +1,394 @@
-/* =========================================
-   SREYANSH DAS PORTFOLIO
-   ========================================= */
+/* =========================================================
+   SREYANSH DAS — PORTFOLIO JAVASCRIPT
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* ---------------------------------------------------------
+       CURRENT YEAR
+    --------------------------------------------------------- */
+    const year = document.getElementById("year");
+
+    if (year) {
+        year.textContent = new Date().getFullYear();
+    }
 
 
-/* ================= CURSOR GLOW ================= */
+    /* ---------------------------------------------------------
+       MOBILE MENU
+    --------------------------------------------------------- */
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
 
-const cursorGlow = document.querySelector(".cursor-glow");
+    if (menuToggle && navLinks) {
 
-document.addEventListener("mousemove", (event) => {
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+            menuToggle.classList.toggle("active");
+        });
 
-    if (!cursorGlow) return;
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+                menuToggle.classList.remove("active");
+            });
+        });
+    }
 
-    cursorGlow.style.left = event.clientX + "px";
-    cursorGlow.style.top = event.clientY + "px";
 
-});
+    /* ---------------------------------------------------------
+       SMOOTH SCROLL
+    --------------------------------------------------------- */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
+        anchor.addEventListener("click", function (e) {
 
-/* ================= MOBILE MENU ================= */
+            const target = document.querySelector(this.getAttribute("href"));
 
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.querySelector(".nav-links");
+            if (target) {
+                e.preventDefault();
 
-if (menuToggle && navLinks) {
-
-    menuToggle.addEventListener("click", () => {
-
-        navLinks.classList.toggle("open");
-
-        menuToggle.textContent =
-            navLinks.classList.contains("open")
-                ? "×"
-                : "☰";
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        });
 
     });
 
 
-    document.querySelectorAll(".nav-links a").forEach(link => {
+    /* ---------------------------------------------------------
+       ACTIVE NAVIGATION
+    --------------------------------------------------------- */
+    const sections = document.querySelectorAll("section[id]");
+    const navigationLinks = document.querySelectorAll(".nav-links a");
 
-        link.addEventListener("click", () => {
+    function updateActiveNav() {
 
-            navLinks.classList.remove("open");
+        let currentSection = "";
 
-            menuToggle.textContent = "☰";
+        sections.forEach(section => {
+
+            const sectionTop = section.offsetTop - 180;
+            const sectionHeight = section.offsetHeight;
+
+            if (
+                window.scrollY >= sectionTop &&
+                window.scrollY < sectionTop + sectionHeight
+            ) {
+                currentSection = section.getAttribute("id");
+            }
+
+        });
+
+        navigationLinks.forEach(link => {
+
+            link.classList.remove("active");
+
+            if (link.getAttribute("href") === `#${currentSection}`) {
+                link.classList.add("active");
+            }
+
+        });
+    }
+
+    window.addEventListener("scroll", updateActiveNav);
+
+    updateActiveNav();
+
+
+    /* ---------------------------------------------------------
+       SCROLL REVEAL ANIMATION
+    --------------------------------------------------------- */
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                    revealObserver.unobserve(entry.target);
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
+    });
+
+
+    /* ---------------------------------------------------------
+       TYPING EFFECT
+    --------------------------------------------------------- */
+    const typingElement = document.querySelector(".typing-text");
+
+    if (typingElement) {
+
+        const words = [
+            "CSE AI/ML Student",
+            "Python Learner",
+            "C Programmer",
+            "Web Developer",
+            "Future Entrepreneur"
+        ];
+
+        let wordIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        function typeEffect() {
+
+            const currentWord = words[wordIndex];
+
+            if (!deleting) {
+
+                typingElement.textContent =
+                    currentWord.substring(0, charIndex + 1);
+
+                charIndex++;
+
+                if (charIndex === currentWord.length) {
+
+                    deleting = true;
+
+                    setTimeout(typeEffect, 1800);
+                    return;
+                }
+
+            } else {
+
+                typingElement.textContent =
+                    currentWord.substring(0, charIndex - 1);
+
+                charIndex--;
+
+                if (charIndex === 0) {
+
+                    deleting = false;
+
+                    wordIndex =
+                        (wordIndex + 1) % words.length;
+                }
+            }
+
+            setTimeout(
+                typeEffect,
+                deleting ? 55 : 90
+            );
+        }
+
+        typeEffect();
+    }
+
+
+    /* ---------------------------------------------------------
+       THEME TOGGLE
+    --------------------------------------------------------- */
+    const themeToggle = document.querySelector(".theme-toggle");
+
+    if (themeToggle) {
+
+        const savedTheme = localStorage.getItem("portfolio-theme");
+
+        if (savedTheme === "light") {
+            document.body.classList.add("light-theme");
+        }
+
+        themeToggle.addEventListener("click", () => {
+
+            document.body.classList.toggle("light-theme");
+
+            const theme =
+                document.body.classList.contains("light-theme")
+                    ? "light"
+                    : "dark";
+
+            localStorage.setItem("portfolio-theme", theme);
+        });
+    }
+
+
+    /* ---------------------------------------------------------
+       CURSOR GLOW
+    --------------------------------------------------------- */
+    const cursorGlow = document.querySelector(".cursor-glow");
+
+    if (cursorGlow && window.innerWidth > 768) {
+
+        document.addEventListener("mousemove", (e) => {
+
+            cursorGlow.style.left = `${e.clientX}px`;
+            cursorGlow.style.top = `${e.clientY}px`;
+
+        });
+
+    }
+
+
+    /* ---------------------------------------------------------
+       BUTTON RIPPLE
+    --------------------------------------------------------- */
+    document.querySelectorAll(".btn").forEach(button => {
+
+        button.addEventListener("click", function (e) {
+
+            const ripple = document.createElement("span");
+
+            ripple.classList.add("ripple");
+
+            const rect = this.getBoundingClientRect();
+
+            ripple.style.left =
+                `${e.clientX - rect.left}px`;
+
+            ripple.style.top =
+                `${e.clientY - rect.top}px`;
+
+            this.appendChild(ripple);
+
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
 
         });
 
     });
 
-}
 
+    /* ---------------------------------------------------------
+       CONTACT FORM
+       GitHub Pages is static, so this opens the visitor's
+       email application using mailto.
+    --------------------------------------------------------- */
+    const contactForm = document.getElementById("contact-form");
 
-/* ================= THEME ================= */
+    if (contactForm) {
 
-const themeToggle = document.getElementById("themeToggle");
+        contactForm.addEventListener("submit", (e) => {
 
-const savedTheme = localStorage.getItem("sreyansh-theme");
-
-if (savedTheme === "light") {
-
-    document.body.classList.add("light");
-
-    if (themeToggle) {
-        themeToggle.textContent = "☾";
-    }
-
-}
-
-
-if (themeToggle) {
-
-    themeToggle.addEventListener("click", () => {
-
-        document.body.classList.toggle("light");
-
-        const isLight =
-            document.body.classList.contains("light");
-
-        localStorage.setItem(
-            "sreyansh-theme",
-            isLight ? "light" : "dark"
-        );
-
-        themeToggle.textContent =
-            isLight ? "☾" : "☼";
-
-    });
-
-}
-
-
-/* ================= TYPING EFFECT ================= */
-
-const typingText = document.getElementById("typingText");
-
-const words = [
-    "Python",
-    "C Programming",
-    "Artificial Intelligence",
-    "Machine Learning",
-    "Web Development",
-    "Git & GitHub"
-];
-
-let wordIndex = 0;
-let charIndex = 0;
-let deleting = false;
-
-
-function typeEffect() {
-
-    if (!typingText) return;
-
-    const currentWord = words[wordIndex];
-
-    if (!deleting) {
-
-        typingText.textContent =
-            currentWord.substring(0, charIndex + 1);
-
-        charIndex++;
-
-        if (charIndex === currentWord.length) {
-
-            deleting = true;
-
-            setTimeout(typeEffect, 1500);
-
-            return;
-        }
-
-    } else {
-
-        typingText.textContent =
-            currentWord.substring(0, charIndex - 1);
-
-        charIndex--;
-
-        if (charIndex === 0) {
-
-            deleting = false;
-
-            wordIndex =
-                (wordIndex + 1) % words.length;
-
-        }
-
-    }
-
-    setTimeout(
-        typeEffect,
-        deleting ? 55 : 90
-    );
-
-}
-
-typeEffect();
-
-
-/* ================= GITHUB DATA ================= */
-
-async function loadGitHubData() {
-
-    try {
-
-        const response = await fetch(
-            "https://api.github.com/users/sreyanshdas2008"
-        );
-
-        if (!response.ok) {
-            throw new Error("GitHub API request failed");
-        }
-
-        const data = await response.json();
-
-
-        const repoCount =
-            document.getElementById("repoCount");
-
-        const followerCount =
-            document.getElementById("followerCount");
-
-
-        if (repoCount) {
-            repoCount.textContent =
-                data.public_repos;
-        }
-
-
-        if (followerCount) {
-            followerCount.textContent =
-                data.followers;
-        }
-
-    } catch (error) {
-
-        console.log(
-            "GitHub data could not be loaded."
-        );
-
-    }
-
-}
-
-loadGitHubData();
-
-
-/* ================= CONTACT FORM ================= */
-
-const contactForm =
-    document.getElementById("contactForm");
-
-const formMessage =
-    document.getElementById("formMessage");
-
-
-if (contactForm) {
-
-    contactForm.addEventListener(
-        "submit",
-        function(event) {
-
-            event.preventDefault();
-
+            e.preventDefault();
 
             const name =
-                document.getElementById("name").value.trim();
+                document.getElementById("name")?.value.trim();
 
             const email =
-                document.getElementById("email").value.trim();
+                document.getElementById("email")?.value.trim();
 
             const message =
-                document.getElementById("message").value.trim();
-
+                document.getElementById("message")?.value.trim();
 
             if (!name || !email || !message) {
 
-                formMessage.textContent =
-                    "Please fill in all fields.";
+                alert("Please fill in all the fields.");
 
                 return;
-
             }
-
 
             const subject =
                 encodeURIComponent(
-                    "Portfolio message from " + name
+                    `Portfolio Contact — ${name}`
                 );
-
 
             const body =
                 encodeURIComponent(
-                    "Name: " + name +
-                    "\nEmail: " + email +
-                    "\n\nMessage:\n" + message
+                    `Name: ${name}\n` +
+                    `Email: ${email}\n\n` +
+                    `Message:\n${message}`
                 );
 
+            window.location.href =
+                `mailto:Sreyanshdas2008@gmail.com?subject=${subject}&body=${body}`;
 
-            const mailto =
-                "mailto:Sreyanshdas2008@gmail.com" +
-                "?subject=" +
-                subject +
-                "&body=" +
-                body;
+        });
+    }
 
 
-            formMessage.textContent =
-                "Opening your email app...";
+    /* ---------------------------------------------------------
+       HEADER BACKGROUND ON SCROLL
+    --------------------------------------------------------- */
+    const navbar = document.querySelector(".navbar");
 
+    if (navbar) {
 
-            window.location.href = mailto;
+        function navbarScroll() {
 
-        }
-    );
-
-}
-
-
-/* ================= ACTIVE NAV ================= */
-
-const sections =
-    document.querySelectorAll("section[id]");
-
-const navItems =
-    document.querySelectorAll(".nav-links a");
-
-
-function updateActiveNav() {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop =
-            section.offsetTop - 130;
-
-        if (window.scrollY >= sectionTop) {
-
-            current = section.getAttribute("id");
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
 
         }
 
-    });
+        window.addEventListener("scroll", navbarScroll);
+
+        navbarScroll();
+    }
 
 
-    navItems.forEach(link => {
+    /* ---------------------------------------------------------
+       HERO PARALLAX — SUBTLE
+    --------------------------------------------------------- */
+    const heroVisual = document.querySelector(".hero-visual");
 
-        link.classList.remove("active");
+    if (heroVisual && window.innerWidth > 900) {
 
-        if (
-            link.getAttribute("href") ===
-            "#" + current
-        ) {
+        window.addEventListener("mousemove", (e) => {
 
-            link.classList.add("active");
+            const x =
+                (window.innerWidth / 2 - e.clientX) / 70;
 
-        }
+            const y =
+                (window.innerHeight / 2 - e.clientY) / 70;
 
-    });
+            heroVisual.style.transform =
+                `translate(${x}px, ${y}px)`;
 
-}
+        });
 
-window.addEventListener(
-    "scroll",
-    updateActiveNav
-);
-
-updateActiveNav();
+    }
 
 
-/* ================= FAQ ================= */
+    /* ---------------------------------------------------------
+       FAQ
+    --------------------------------------------------------- */
+    const faqItems = document.querySelectorAll(".faq-item");
 
-document.querySelectorAll(".faq-item")
-    .forEach(item => {
+    faqItems.forEach(item => {
 
         item.addEventListener("toggle", () => {
 
-            if (!item.open) return;
+            if (item.open) {
 
-            document
-                .querySelectorAll(".faq-item")
-                .forEach(other => {
+                faqItems.forEach(otherItem => {
 
-                    if (
-                        other !== item &&
-                        other.open
-                    ) {
-
-                        other.open = false;
-
+                    if (otherItem !== item) {
+                        otherItem.removeAttribute("open");
                     }
 
                 });
 
+            }
+
         });
 
     });
 
 
-/* ================= CURRENT YEAR ================= */
+    /* ---------------------------------------------------------
+       PAGE LOADED
+    --------------------------------------------------------- */
+    document.body.classList.add("page-loaded");
 
-const year =
-    document.getElementById("year");
-
-if (year) {
-
-    year.textContent =
-        new Date().getFullYear();
-
-}
-
-
-/* ================= CONSOLE ================= */
-
-console.log(
-    "%cSreyansh Das — Portfolio",
-    "color:#A78BFA;font-size:18px;font-weight:bold;"
-);
-
-console.log(
-    "%cLearning today. Building tomorrow.",
-    "color:#22D3EE;font-size:12px;"
-);
+});
