@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="description"
+    content="Sreyansh Das — CSE AI/ML student portfolio."
+  />
+
+  <title>Sreyansh Das | CSE AI/ML</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="cursor-glow"></div>
+  <div class="noise"></div>
+
+  <!-- NAVIGATION -->
+
+  <header class="nav-wrap">
+
+    <nav class="nav container">
+
+      <a class="brand" href="#home">
+        <span>SD</span>
+        Sreyansh Das
+      </a>
+
+      <button class="menu-btn" aria-label="Open menu">
+        ☰
+      </button>
+
+      <div class="nav-links">
+
+        <a class="active" href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#skills">Skills</a>
+
+        <a href="#projects">Projects</a>
+
+        <a href="#education">Education</a>
+
+        <a href="#contact">Contact</a>
+
+      </div>
+
+      <button class="theme-btn" aria-label="Toggle theme">
+        ☼
+      </button>
+
+    </nav>
+
+  </header>
+
+
+  <main>
+
+    <!-- HERO -->
+
+    <section id="home" class="hero container">
+
+      <div class="hero-copy reveal">
+
+        <p class="eyebrow">
+          <span class="dot"></span>
+          CSE AI/ML STUDENT · SRM KTR
+        </p>
+
+        <h1>
+          Hello, I'm<br>
+          <span class="gradient-text">
+            Sreyansh Das.
+          </span>
+        </h1>
+
+        <p class="hero-sub">
+          I build, learn and explore at the intersection of
+          <b>code, AI and technology.</b>
+        </p>
+
+        <div class="hero-actions">
+
+          <a class="btn primary" href="#projects">
+            Explore my work
+            <span>↗</span>
+          </a>
+
+          <a class="btn ghost" href="#contact">
+            Let's connect
+          </a>
+
+        </div>
+
+        <div class="quick-info">
+
+          <span>
+            📍 Agartala, Tripura
+          </span>
+
+          <span>
+            🎓 SRM Institute of Science and Technology
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-art reveal delay-1">
+
+        <div class="orb orb-a"></div>
+
+        <div class="orb orb-b"></div>
+
+        <div class="grid-glow"></div>
+
+
+        <div class="profile-placeholder">
+
+          <div class="initials">
+            SD
+          </div>
+
+          <p>
+            Add your photo
+          </p>
+
+        </div>
+
+
+        <div class="floating-card card-one">
+
+          <span>⌘</span>
+
+          <div>
+
+            <b>Code</b>
+
+            <small>
+              Build · Debug · Repeat
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <div class="floating-card card-two">
+
+          <span>✦</span>
+
+          <div>
+
+            <b>AI / ML</b>
+
+            <small>
+              Learning every day
+            </small>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about" class="section container">
+
+      <div class="section-heading reveal">
+
+        <p class="eyebrow">
+          01 · ABOUT
+        </p>
+
+        <h2>
+          Curious mind.<br>
+          <span class="gradient-text">
+            Builder mindset.
+          </span>
+        </h2>
+
+      </div>
+
+
+      <div class="about-grid">
+
+
+        <div class="glass about-text reveal">
+
+          <p>
+            I'm <strong>Sreyansh Das</strong>, a Computer Science student
+            specializing in Artificial Intelligence and Machine Learning
+            at SRM KTR.
+          </p>
+
+          <p>
+            I'm currently strengthening my foundations in programming
+            while exploring AI/ML, web development and real-world
+            projects. I enjoy turning ideas into useful things and
+            improving a little every day.
+          </p>
+
+
+          <div class="about-stats">
+
+            <div>
+
+              <b>2030</b>
+
+              <span>
+                Expected graduation
+              </span>
+
+            </div>
+
+
+            <div>
+
+              <b>CSE</b>
+
+              <span>
+                AI / ML specialization
+              </span>
+
+            </div>
+
+
+            <div>
+
+              <b>∞</b>
+
+              <span>
+                Things to learn
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="quote-card reveal delay-1">
+
+          <span class="quote-mark">
+            “
+          </span>
+
+          <p>
+            Building my skills.<br>
+            Creating things.<br>
+            Exploring AI.
+          </p>
+
+          <span class="line"></span>
+
+          <small>
+            Sreyansh Das
+          </small>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills" class="section container">
+
+      <div class="section-heading reveal">
+
+        <p class="eyebrow">
+          02 · SKILLS
+        </p>
+
+        <h2>
+          Tools I use to<br>
+          <span class="gradient-text">
+            build things.
+          </span>
+        </h2>
+
+      </div>
+
+
+      <div class="skills-grid">
+
+
+        <div class="skill-card glass reveal">
+
+          <div class="skill-icon">
+            🐍
+          </div>
+
+          <h3>
+            Python
+          </h3>
+
+          <p>
+            Programming & problem solving
+          </p>
+
+          <div class="bar">
+            <i style="width:72%"></i>
+          </div>
+
+        </div>
+
+
+        <div class="skill-card glass reveal delay-1">
+
+          <div class="skill-icon">
+            C
+          </div>
+
+          <h3>
+            C Language
+          </h3>
+
+          <p>
+            Programming fundamentals
+          </p>
+
+          <div class="bar">
+            <i style="width:68%"></i>
+          </div>
+
+        </div>
+
+
+        <div class="skill-card glass reveal delay-2">
+
+          <div class="skill-icon">
+            AI
+          </div>
+
+          <h3>
+            AI / ML
+          </h3>
+
+          <p>
+            Learning & experimentation
+          </p>
+
+          <div class="bar">
+            <i style="width:55%"></i>
+          </div>
+
+        </div>
+
+
+        <div class="skill-card glass reveal">
+
+          <div class="skill-icon">
+            ⌘
+          </div>
+
+          <h3>
+            Git / GitHub
+          </h3>
+
+          <p>
+            Version control & projects
+          </p>
+
+          <div class="bar">
+            <i style="width:50%"></i>
+          </div>
+
+        </div>
+
+
+        <div class="skill-card glass reveal delay-1">
+
+          <div class="skill-icon">
+            ⌬
+          </div>
+
+          <h3>
+            HTML / CSS
+          </h3>
+
+          <p>
+            Web structure & design
+          </p>
+
+          <div class="bar">
+            <i style="width:65%"></i>
+          </div>
+
+        </div>
+
+
+        <div class="skill-card glass reveal delay-2">
+
+          <div class="skill-icon">
+            JS
+          </div>
+
+          <h3>
+            JavaScript
+          </h3>
+
+          <p>
+            Interactive web experiences
+          </p>
+
+          <div class="bar">
+            <i style="width:42%"></i>
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects" class="section container">
+
+      <div class="section-heading row reveal">
+
+        <div>
+
+          <p class="eyebrow">
+            03 · PROJECTS
+          </p>
+
+          <h2>
+            Things I've
+            <span class="gradient-text">
+              built.
+            </span>
+          </h2>
+
+        </div>
+
+        <span class="section-note">
+          More projects coming soon ↗
+        </span>
+
+      </div>
+
+
+      <div class="projects-grid">
+
+
+        <article class="project-card glass reveal">
+
+          <div class="project-top">
+
+            <span class="tag">
+              AI / ML
+            </span>
+
+            <span class="project-number">
+              01
+            </span>
+
+          </div>
+
+
+          <div class="project-visual visual-ai">
+
+            <div class="pulse">
+              AI
+            </div>
+
+            <div class="mini-bars">
+
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+
+            </div>
+
+          </div>
+
+
+          <h3>
+            AI / ML Project
+          </h3>
+
+          <p>
+            Machine-learning project space for a future model,
+            dataset or prediction system.
+          </p>
+
+
+          <div class="tech">
+
+            <span>Python</span>
+            <span>ML</span>
+            <span>Data</span>
+
+          </div>
+
+
+          <a href="#" class="project-link">
+            GitHub ↗
+          </a>
+
+        </article>
+
+
+
+        <article class="project-card glass reveal delay-1">
+
+          <div class="project-top">
+
+            <span class="tag">
+              WEB
+            </span>
+
+            <span class="project-number">
+              02
+            </span>
+
+          </div>
+
+
+          <div class="project-visual visual-web">
+
+            <div class="browser">
+
+              <b>
+                PORTFOLIO
+              </b>
+
+              <span></span>
+              <span></span>
+              <span></span>
+
+            </div>
+
+          </div>
+
+
+          <h3>
+            Personal Portfolio
+          </h3>
+
+          <p>
+            This responsive portfolio with smooth scrolling,
+            animations and a premium interface.
+          </p>
+
+
+          <div class="tech">
+
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JS</span>
+
+          </div>
+
+
+          <a href="#" class="project-link">
+            Live Demo ↗
+          </a>
+
+        </article>
+
+
+
+        <article class="project-card glass reveal delay-2">
+
+          <div class="project-top">
+
+            <span class="tag">
+              C
+            </span>
+
+            <span class="project-number">
+              03
+            </span>
+
+          </div>
+
+
+          <div class="project-visual visual-code">
+
+            <code>
+              int main() {<br>
+              &nbsp; printf("Hello");<br>
+              &nbsp; return 0;<br>
+              }
+            </code>
+
+          </div>
+
+
+          <h3>
+            C Programming
+          </h3>
+
+          <p>
+            A growing collection of C programs covering
+            fundamentals, functions, pointers and problem solving.
+          </p>
+
+
+          <div class="tech">
+
+            <span>C</span>
+            <span>Logic</span>
+            <span>DSA</span>
+
+          </div>
+
+
+          <a href="#" class="project-link">
+            GitHub ↗
+          </a>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+
+    <section id="education" class="section container">
+
+      <div class="section-heading reveal">
+
+        <p class="eyebrow">
+          04 · EDUCATION
+        </p>
+
+        <h2>
+          My academic
+          <span class="gradient-text">
+            journey.
+          </span>
+        </h2>
+
+      </div>
+
+
+      <div class="timeline">
+
+
+        <div class="timeline-item reveal">
+
+          <div class="timeline-dot"></div>
+
+          <span>
+            2024 — 2030 · Expected
+          </span>
+
+          <h3>
+            SRM Institute of Science and Technology
+          </h3>
+
+          <p>
+            B.Tech · Computer Science & Engineering
+            (AI/ML) · Kattankulathur, Tamil Nadu
+          </p>
+
+        </div>
+
+
+        <div class="timeline-item reveal delay-1">
+
+          <div class="timeline-dot"></div>
+
+          <span>
+            Higher Secondary
+          </span>
+
+          <h3>
+            Class XII
+          </h3>
+
+          <p>
+            Tripura · Senior Secondary education
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="section container contact-section">
+
+
+      <div class="contact-copy reveal">
+
+        <p class="eyebrow">
+          05 · CONTACT
+        </p>
+
+        <h2>
+          Let's build something<br>
+
+          <span class="gradient-text">
+            interesting.
+          </span>
+        </h2>
+
+        <p>
+          Have a project idea, opportunity, or just want to say hello?
+          Send me a message.
+        </p>
+
+
+        <div class="socials">
+
+          <a href="#" aria-label="GitHub">
+            GitHub
+          </a>
+
+          <a href="#" aria-label="LinkedIn">
+            LinkedIn
+          </a>
+
+          <a href="mailto:your-email@example.com">
+            Email
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <form
+        class="contact-form glass reveal delay-1"
+        id="contactForm"
+      >
+
+
+        <label>
+
+          Name
+
+          <input
+            required
+            name="name"
+            placeholder="Your name"
+          >
+
+        </label>
+
+
+        <label>
+
+          Email
+
+          <input
+            required
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+          >
+
+        </label>
+
+
+        <label>
+
+          Message
+
+          <textarea
+            required
+            name="message"
+            rows="5"
+            placeholder="Tell me what's on your mind..."
+          ></textarea>
+
+        </label>
+
+
+        <button
+          class="btn primary"
+          type="submit"
+        >
+          Send message ↗
+        </button>
+
+
+        <p
+          class="form-note"
+          id="formNote"
+        >
+          This opens your email app — no backend required.
+        </p>
+
+
+      </form>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <span>
+        © <span id="year"></span> Sreyansh Das
+      </span>
+
+      <span>
+        Designed & built with curiosity.
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script src="script.js"></script>
+
+</body>
+</html>
