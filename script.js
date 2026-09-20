@@ -1,355 +1,294 @@
 // ================================
-// SREYANSH DAS — PORTFOLIO
+// SREYANSH PORTFOLIO — JAVASCRIPT
 // ================================
 
+document.addEventListener("DOMContentLoaded", () => {
 
-// Cursor glow
-const cursorGlow = document.querySelector(".cursor-glow");
+    // -------------------------------
+    // MOBILE MENU
+    // -------------------------------
 
-if (cursorGlow) {
+    const menuBtn = document.querySelector(".menu-btn");
+    const navLinks = document.querySelector(".nav-links");
 
-    document.addEventListener("mousemove", (event) => {
+    if (menuBtn && navLinks) {
 
-        cursorGlow.style.left = `${event.clientX}px`;
-        cursorGlow.style.top = `${event.clientY}px`;
+        menuBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("open");
+
+            menuBtn.textContent =
+                navLinks.classList.contains("open")
+                    ? "×"
+                    : "☰";
+        });
+
+        // Close menu after clicking a link
+        navLinks.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("open");
+
+                menuBtn.textContent = "☰";
+
+            });
+
+        });
+
+    }
+
+
+    // -------------------------------
+    // SCROLL REVEAL
+    // -------------------------------
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
+
+    const revealObserver =
+        new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("show");
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+    revealElements.forEach(element => {
+
+        revealObserver.observe(element);
 
     });
 
-}
 
+    // -------------------------------
+    // ACTIVE NAVIGATION
+    // -------------------------------
 
-// Mobile menu
-const menuBtn = document.querySelector(".menu-btn");
-const navLinks = document.querySelector(".nav-links");
+    const sections =
+        document.querySelectorAll("section[id]");
 
-if (menuBtn && navLinks) {
+    const navItems =
+        document.querySelectorAll(".nav-links a");
 
-    menuBtn.addEventListener("click", () => {
+    const sectionObserver =
+        new IntersectionObserver(
+            entries => {
 
-        navLinks.classList.toggle("open");
+                entries.forEach(entry => {
 
-        menuBtn.textContent =
-            navLinks.classList.contains("open")
-                ? "✕"
-                : "☰";
+                    if (entry.isIntersecting) {
+
+                        const id =
+                            entry.target.getAttribute("id");
+
+                        navItems.forEach(link => {
+
+                            link.classList.remove("active");
+
+                            if (
+                                link.getAttribute("href") ===
+                                `#${id}`
+                            ) {
+
+                                link.classList.add("active");
+
+                            }
+
+                        });
+
+                    }
+
+                });
+
+            },
+            {
+                rootMargin: "-35% 0px -55% 0px"
+            }
+        );
+
+    sections.forEach(section => {
+
+        sectionObserver.observe(section);
 
     });
 
 
-    document.querySelectorAll(".nav-links a").forEach(link => {
+    // -------------------------------
+    // THEME SWITCH
+    // -------------------------------
 
-        link.addEventListener("click", () => {
+    const themeBtn =
+        document.querySelector(".theme-btn");
 
-            navLinks.classList.remove("open");
-            menuBtn.textContent = "☰";
+    const savedTheme =
+        localStorage.getItem("portfolio-theme");
+
+    if (savedTheme === "light") {
+
+        document.body.classList.add("light");
+
+        if (themeBtn) {
+            themeBtn.textContent = "☀";
+        }
+
+    }
+
+    if (themeBtn) {
+
+        themeBtn.addEventListener("click", () => {
+
+            document.body.classList.toggle("light");
+
+            const isLight =
+                document.body.classList.contains("light");
+
+            themeBtn.textContent =
+                isLight ? "☀" : "☾";
+
+            localStorage.setItem(
+                "portfolio-theme",
+                isLight ? "light" : "dark"
+            );
+
+        });
+
+    }
+
+
+    // -------------------------------
+    // CURSOR GLOW
+    // -------------------------------
+
+    const cursorGlow =
+        document.querySelector(".cursor-glow");
+
+    if (cursorGlow && window.innerWidth > 700) {
+
+        window.addEventListener("mousemove", event => {
+
+            cursorGlow.style.left =
+                `${event.clientX}px`;
+
+            cursorGlow.style.top =
+                `${event.clientY}px`;
+
+        });
+
+    }
+
+
+    // -------------------------------
+    // CURRENT YEAR
+    // -------------------------------
+
+    const year =
+        document.getElementById("year");
+
+    if (year) {
+
+        year.textContent =
+            new Date().getFullYear();
+
+    }
+
+
+    // -------------------------------
+    // SMOOTH SCROLL
+    // -------------------------------
+
+    document.querySelectorAll(
+        'a[href^="#"]'
+    ).forEach(link => {
+
+        link.addEventListener("click", event => {
+
+            const targetId =
+                link.getAttribute("href");
+
+            const target =
+                document.querySelector(targetId);
+
+            if (!target) return;
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
 
         });
 
     });
 
-}
 
+    // -------------------------------
+    // SUBTLE PROFILE PARALLAX
+    // -------------------------------
 
-// Theme
-const themeBtn = document.querySelector(".theme-btn");
+    const profile =
+        document.querySelector(".profile-frame");
 
-if (themeBtn) {
+    if (profile && window.innerWidth > 900) {
 
-    const savedTheme = localStorage.getItem("theme");
+        window.addEventListener("mousemove", event => {
 
-    if (savedTheme === "light") {
+            const x =
+                (event.clientX / window.innerWidth - 0.5);
 
-        document.body.classList.add("light");
-        themeBtn.textContent = "☀";
+            const y =
+                (event.clientY / window.innerHeight - 0.5);
+
+            profile.style.transform =
+                `rotate(2deg)
+                 translate(${x * 8}px, ${y * 8}px)`;
+
+        });
 
     }
 
 
-    themeBtn.addEventListener("click", () => {
+    // -------------------------------
+    // BUTTON MICRO-INTERACTION
+    // -------------------------------
 
-        document.body.classList.toggle("light");
+    document.querySelectorAll(".btn").forEach(button => {
 
-        const lightMode =
-            document.body.classList.contains("light");
+        button.addEventListener("mouseenter", () => {
 
-        themeBtn.textContent =
-            lightMode ? "☀" : "☾";
+            button.style.transform =
+                "translateY(-3px)";
 
-        localStorage.setItem(
-            "theme",
-            lightMode ? "light" : "dark"
-        );
+        });
+
+        button.addEventListener("mouseleave", () => {
+
+            button.style.transform =
+                "translateY(0)";
+
+        });
 
     });
 
-}
 
+    // -------------------------------
+    // PAGE LOADED
+    // -------------------------------
 
-// Scroll reveal
-const revealElements =
-    document.querySelectorAll(".reveal");
-
-const revealObserver =
-    new IntersectionObserver(
-        (entries) => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("show");
-
-                    revealObserver.unobserve(
-                        entry.target
-                    );
-
-                }
-
-            });
-
-        },
-        {
-            threshold: 0.12
-        }
-    );
-
-
-revealElements.forEach(element => {
-
-    revealObserver.observe(element);
+    document.body.classList.add("loaded");
 
 });
-
-
-// Active navigation
-const sections =
-    document.querySelectorAll("section[id]");
-
-const navItems =
-    document.querySelectorAll(".nav-links a");
-
-
-function updateActiveNav() {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop =
-            section.offsetTop - 180;
-
-        if (window.scrollY >= sectionTop) {
-
-            current = section.id;
-
-        }
-
-    });
-
-
-    navItems.forEach(link => {
-
-        link.classList.remove("active");
-
-        if (
-            link.getAttribute("href") ===
-            `#${current}`
-        ) {
-
-            link.classList.add("active");
-
-        }
-
-    });
-
-}
-
-
-window.addEventListener(
-    "scroll",
-    updateActiveNav
-);
-
-updateActiveNav();
-
-
-// Smooth scrolling
-document.querySelectorAll(
-    'a[href^="#"]'
-).forEach(link => {
-
-    link.addEventListener("click", event => {
-
-        const targetID =
-            link.getAttribute("href");
-
-        const target =
-            document.querySelector(targetID);
-
-        if (target) {
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-
-        }
-
-    });
-
-});
-
-
-// Typing effect
-const typing =
-    document.querySelector(".typing");
-
-if (typing) {
-
-    const words = [
-        "C programming",
-        "Python",
-        "AI / ML",
-        "Web development"
-    ];
-
-    let wordIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
-
-
-    function type() {
-
-        const word = words[wordIndex];
-
-        if (!deleting) {
-
-            typing.textContent =
-                word.substring(0, charIndex + 1);
-
-            charIndex++;
-
-            if (charIndex === word.length) {
-
-                deleting = true;
-
-                setTimeout(type, 1400);
-
-                return;
-
-            }
-
-        } else {
-
-            typing.textContent =
-                word.substring(0, charIndex - 1);
-
-            charIndex--;
-
-            if (charIndex === 0) {
-
-                deleting = false;
-
-                wordIndex =
-                    (wordIndex + 1) % words.length;
-
-            }
-
-        }
-
-        setTimeout(
-            type,
-            deleting ? 45 : 85
-        );
-
-    }
-
-
-    type();
-
-}
-
-
-// Contact form
-const contactForm =
-    document.querySelector(".contact-form");
-
-if (contactForm) {
-
-    contactForm.addEventListener(
-        "submit",
-        event => {
-
-            event.preventDefault();
-
-            const name =
-                contactForm.querySelector(
-                    'input[type="text"]'
-                ).value.trim();
-
-            const email =
-                contactForm.querySelector(
-                    'input[type="email"]'
-                ).value.trim();
-
-            const message =
-                contactForm.querySelector(
-                    "textarea"
-                ).value.trim();
-
-
-            if (!name || !email || !message) {
-
-                alert(
-                    "Please fill in all the fields."
-                );
-
-                return;
-
-            }
-
-
-            const subject =
-                encodeURIComponent(
-                    `Portfolio message from ${name}`
-                );
-
-
-            const body =
-                encodeURIComponent(
-                    `Name: ${name}\nEmail: ${email}\n\n${message}`
-                );
-
-
-            // Replace with your real email
-            window.location.href =
-                `mailto:your-email@example.com?subject=${subject}&body=${body}`;
-
-        }
-    );
-
-}
-
-
-// Current year
-const year =
-    document.querySelector("#year");
-
-if (year) {
-
-    year.textContent =
-        new Date().getFullYear();
-
-}
-
-
-// Page loaded
-window.addEventListener(
-    "load",
-    () => {
-
-        document.body.classList.add("loaded");
-
-    }
-);
